@@ -10,4 +10,9 @@ if __name__ == "__main__":
         "mobileNumber": "7305989193"
     }
     appId = "test"
-    loginAPI.login_normal_login_post(login_body, appId)
+    response_body, status_code, headers = loginAPI.login_normal_login_post(login_body, appId)
+    print("response: " + str(response_body))
+
+    # access_token = response_body.data.accessToken
+
+    # print("accessToken: " + str(access_token))

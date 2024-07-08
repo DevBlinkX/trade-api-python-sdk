@@ -35,12 +35,6 @@ class OrderControllerApi(object):
     def brokerage_charges(self, body, user_id, source, **kwargs):  # noqa: E501
         """Brokerage Charges  # noqa: E501
 
-        This endpoint allows users to get broker charges  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.brokerage_charges(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param BrokerageChargeRequest body: (required)
         :param str user_id: (required)
@@ -59,12 +53,6 @@ class OrderControllerApi(object):
     def brokerage_charges_with_http_info(self, body, user_id, source, **kwargs):  # noqa: E501
         """Brokerage Charges  # noqa: E501
 
-        This endpoint allows users to get broker charges  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.brokerage_charges_with_http_info(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param BrokerageChargeRequest body: (required)
         :param str user_id: (required)
@@ -74,11 +62,8 @@ class OrderControllerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'user_id', 'source']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['body', 'user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -88,7 +73,7 @@ class OrderControllerApi(object):
                     " to method brokerage_charges" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -150,12 +135,6 @@ class OrderControllerApi(object):
     def cancel_order(self, body, user_id, source, **kwargs):  # noqa: E501
         """Cancel Order  # noqa: E501
 
-        This endpoint allows users to cancel a pending order  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cancel_order(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param CancelOrderRequest body: (required)
         :param str user_id: (required)
@@ -174,12 +153,6 @@ class OrderControllerApi(object):
     def cancel_order_with_http_info(self, body, user_id, source, **kwargs):  # noqa: E501
         """Cancel Order  # noqa: E501
 
-        This endpoint allows users to cancel a pending order  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.cancel_order_with_http_info(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param CancelOrderRequest body: (required)
         :param str user_id: (required)
@@ -189,11 +162,8 @@ class OrderControllerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'user_id', 'source']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['body', 'user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -203,7 +173,7 @@ class OrderControllerApi(object):
                     " to method cancel_order" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -265,12 +235,6 @@ class OrderControllerApi(object):
     def exit_order(self, body, user_id, source, **kwargs):  # noqa: E501
         """Exit an Order  # noqa: E501
 
-        This endpoint allow user to exit an order  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.exit_order(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param ExitOrderRequest body: (required)
         :param str user_id: (required)
@@ -289,12 +253,6 @@ class OrderControllerApi(object):
     def exit_order_with_http_info(self, body, user_id, source, **kwargs):  # noqa: E501
         """Exit an Order  # noqa: E501
 
-        This endpoint allow user to exit an order  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.exit_order_with_http_info(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param ExitOrderRequest body: (required)
         :param str user_id: (required)
@@ -304,11 +262,8 @@ class OrderControllerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'user_id', 'source']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['body', 'user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -318,7 +273,7 @@ class OrderControllerApi(object):
                     " to method exit_order" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -380,12 +335,6 @@ class OrderControllerApi(object):
     def modify_order(self, body, user_id, source, **kwargs):  # noqa: E501
         """Modify Order  # noqa: E501
 
-        This endpoint allows users to modify a pending order  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_order(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param ModifyOrderRequest body: (required)
         :param str user_id: (required)
@@ -404,12 +353,6 @@ class OrderControllerApi(object):
     def modify_order_with_http_info(self, body, user_id, source, **kwargs):  # noqa: E501
         """Modify Order  # noqa: E501
 
-        This endpoint allows users to modify a pending order  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.modify_order_with_http_info(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param ModifyOrderRequest body: (required)
         :param str user_id: (required)
@@ -419,11 +362,8 @@ class OrderControllerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'user_id', 'source']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['body', 'user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -433,7 +373,7 @@ class OrderControllerApi(object):
                     " to method modify_order" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -495,12 +435,6 @@ class OrderControllerApi(object):
     def place_order(self, body, user_id, source, **kwargs):  # noqa: E501
         """Place Order  # noqa: E501
 
-        This endpoint allow user to place an order  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.place_order(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param PlaceOrderRequest body: (required)
         :param str user_id: (required)
@@ -519,12 +453,6 @@ class OrderControllerApi(object):
     def place_order_with_http_info(self, body, user_id, source, **kwargs):  # noqa: E501
         """Place Order  # noqa: E501
 
-        This endpoint allow user to place an order  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.place_order_with_http_info(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param PlaceOrderRequest body: (required)
         :param str user_id: (required)
@@ -534,11 +462,8 @@ class OrderControllerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'user_id', 'source']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['body', 'user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -548,7 +473,7 @@ class OrderControllerApi(object):
                     " to method place_order" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):

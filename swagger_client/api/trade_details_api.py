@@ -35,11 +35,6 @@ class TradeDetailsApi(object):
     def order_details(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """OrderDetailsAPI  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.order_details(body, authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param TradeDetailsRequest body: (required)
         :param str authorization: (required)
@@ -58,11 +53,6 @@ class TradeDetailsApi(object):
     def order_details_with_http_info(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """OrderDetailsAPI  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.order_details_with_http_info(body, authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param TradeDetailsRequest body: (required)
         :param str authorization: (required)
@@ -72,11 +62,8 @@ class TradeDetailsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'authorization', 'api_key']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['body', 'authorization', 'api_key', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -86,7 +73,7 @@ class TradeDetailsApi(object):
                     " to method order_details" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -148,11 +135,6 @@ class TradeDetailsApi(object):
     def order_history(self, authorization, api_key, **kwargs):  # noqa: E501
         """Order History API  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.order_history(authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param str authorization: (required)
         :param str api_key: (required)
@@ -171,11 +153,6 @@ class TradeDetailsApi(object):
     def order_history_with_http_info(self, authorization, api_key, **kwargs):  # noqa: E501
         """Order History API  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.order_history_with_http_info(authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param str authorization: (required)
         :param str api_key: (required)
@@ -185,11 +162,8 @@ class TradeDetailsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['authorization', 'api_key', 'body']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['authorization', 'api_key', 'body', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -199,7 +173,7 @@ class TradeDetailsApi(object):
                     " to method order_history" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'authorization' is set
         if ('authorization' not in params or
                 params['authorization'] is None):
@@ -257,11 +231,6 @@ class TradeDetailsApi(object):
     def trade_details_using_order_id(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """TradeDetails Using OrderId API  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.trade_details_using_order_id(body, authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param TradeDetailsRequest body: (required)
         :param str authorization: (required)
@@ -280,11 +249,6 @@ class TradeDetailsApi(object):
     def trade_details_using_order_id_with_http_info(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """TradeDetails Using OrderId API  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.trade_details_using_order_id_with_http_info(body, authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param TradeDetailsRequest body: (required)
         :param str authorization: (required)
@@ -294,11 +258,8 @@ class TradeDetailsApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'authorization', 'api_key']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['body', 'authorization', 'api_key', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -308,7 +269,7 @@ class TradeDetailsApi(object):
                     " to method trade_details_using_order_id" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):

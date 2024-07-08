@@ -35,11 +35,6 @@ class MarketDataApi(object):
     def get_quote(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """GetQuoteAPI  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_quote(body, authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param QuotesRequest body: (required)
         :param str authorization: (required)
@@ -58,11 +53,6 @@ class MarketDataApi(object):
     def get_quote_with_http_info(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """GetQuoteAPI  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_quote_with_http_info(body, authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param QuotesRequest body: (required)
         :param str authorization: (required)
@@ -72,11 +62,8 @@ class MarketDataApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'authorization', 'api_key']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['body', 'authorization', 'api_key', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -86,7 +73,7 @@ class MarketDataApi(object):
                     " to method get_quote" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):

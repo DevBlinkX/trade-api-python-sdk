@@ -35,12 +35,6 @@ class TradeBookApi(object):
     def get_order_book(self, user_id, source, **kwargs):  # noqa: E501
         """Get orders  # noqa: E501
 
-        This endpoint allows users view orders  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_order_book(user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param str user_id: (required)
         :param str source: (required)
@@ -58,12 +52,6 @@ class TradeBookApi(object):
     def get_order_book_with_http_info(self, user_id, source, **kwargs):  # noqa: E501
         """Get orders  # noqa: E501
 
-        This endpoint allows users view orders  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_order_book_with_http_info(user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param str user_id: (required)
         :param str source: (required)
@@ -72,11 +60,8 @@ class TradeBookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'source']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -86,7 +71,7 @@ class TradeBookApi(object):
                     " to method get_order_book" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params or
                 params['user_id'] is None):
@@ -138,12 +123,6 @@ class TradeBookApi(object):
     def get_order_trail(self, body, user_id, source, **kwargs):  # noqa: E501
         """Order Trail  # noqa: E501
 
-        This endpoint allows users to get events of particular order  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_order_trail(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param OrderTrailRequest body: (required)
         :param str user_id: (required)
@@ -162,12 +141,6 @@ class TradeBookApi(object):
     def get_order_trail_with_http_info(self, body, user_id, source, **kwargs):  # noqa: E501
         """Order Trail  # noqa: E501
 
-        This endpoint allows users to get events of particular order  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_order_trail_with_http_info(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param OrderTrailRequest body: (required)
         :param str user_id: (required)
@@ -177,11 +150,8 @@ class TradeBookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'user_id', 'source']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['body', 'user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -191,7 +161,7 @@ class TradeBookApi(object):
                     " to method get_order_trail" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -253,12 +223,6 @@ class TradeBookApi(object):
     def trade_book(self, user_id, source, order_ids, **kwargs):  # noqa: E501
         """Trades  # noqa: E501
 
-        This endpoint allows users to view trades  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.trade_book(user_id, source, order_ids, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param str user_id: (required)
         :param str source: (required)
@@ -277,12 +241,6 @@ class TradeBookApi(object):
     def trade_book_with_http_info(self, user_id, source, order_ids, **kwargs):  # noqa: E501
         """Trades  # noqa: E501
 
-        This endpoint allows users to view trades  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.trade_book_with_http_info(user_id, source, order_ids, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param str user_id: (required)
         :param str source: (required)
@@ -292,11 +250,8 @@ class TradeBookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'source', 'order_ids']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['user_id', 'source', 'order_ids', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -306,7 +261,7 @@ class TradeBookApi(object):
                     " to method trade_book" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params or
                 params['user_id'] is None):

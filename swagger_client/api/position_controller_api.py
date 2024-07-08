@@ -35,12 +35,6 @@ class PositionControllerApi(object):
     def convert_position(self, body, user_id, source, **kwargs):  # noqa: E501
         """Position Conversion  # noqa: E501
 
-        This endpoint allow user to convert positions  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.convert_position(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param PositionConversionRequest body: (required)
         :param str user_id: (required)
@@ -59,12 +53,6 @@ class PositionControllerApi(object):
     def convert_position_with_http_info(self, body, user_id, source, **kwargs):  # noqa: E501
         """Position Conversion  # noqa: E501
 
-        This endpoint allow user to convert positions  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.convert_position_with_http_info(body, user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param PositionConversionRequest body: (required)
         :param str user_id: (required)
@@ -74,11 +62,8 @@ class PositionControllerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'user_id', 'source']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['body', 'user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -88,7 +73,7 @@ class PositionControllerApi(object):
                     " to method convert_position" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -150,12 +135,6 @@ class PositionControllerApi(object):
     def do_holdings(self, user_id, source, **kwargs):  # noqa: E501
         """Holdings  # noqa: E501
 
-        This endpoint allow user to view holdings  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.do_holdings(user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param str user_id: (required)
         :param str source: (required)
@@ -173,12 +152,6 @@ class PositionControllerApi(object):
     def do_holdings_with_http_info(self, user_id, source, **kwargs):  # noqa: E501
         """Holdings  # noqa: E501
 
-        This endpoint allow user to view holdings  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.do_holdings_with_http_info(user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param str user_id: (required)
         :param str source: (required)
@@ -187,11 +160,8 @@ class PositionControllerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'source']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -201,7 +171,7 @@ class PositionControllerApi(object):
                     " to method do_holdings" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params or
                 params['user_id'] is None):
@@ -253,12 +223,6 @@ class PositionControllerApi(object):
     def get_position_book(self, user_id, source, **kwargs):  # noqa: E501
         """Position Book  # noqa: E501
 
-        This endpoint allow user to view positions  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_position_book(user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param str user_id: (required)
         :param str source: (required)
@@ -276,12 +240,6 @@ class PositionControllerApi(object):
     def get_position_book_with_http_info(self, user_id, source, **kwargs):  # noqa: E501
         """Position Book  # noqa: E501
 
-        This endpoint allow user to view positions  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_position_book_with_http_info(user_id, source, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param str user_id: (required)
         :param str source: (required)
@@ -290,11 +248,8 @@ class PositionControllerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'source']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -304,7 +259,7 @@ class PositionControllerApi(object):
                     " to method get_position_book" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params or
                 params['user_id'] is None):

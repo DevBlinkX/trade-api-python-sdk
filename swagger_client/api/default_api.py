@@ -14,9 +14,6 @@ from __future__ import absolute_import
 
 import re  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
 from swagger_client.api_client import ApiClient
 
 
@@ -65,7 +62,6 @@ class DefaultApi(object):
         #             " to method login_normal_login_post" % key
         #         )
         #     params[key] = val
-        del params['kwargs']
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):

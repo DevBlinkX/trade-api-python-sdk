@@ -35,11 +35,6 @@ class LimitApi(object):
     def fund_view(self, authorization, api_key, **kwargs):  # noqa: E501
         """FundViewAPI  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.fund_view(authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param str authorization: (required)
         :param str api_key: (required)
@@ -57,11 +52,6 @@ class LimitApi(object):
     def fund_view_with_http_info(self, authorization, api_key, **kwargs):  # noqa: E501
         """FundViewAPI  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.fund_view_with_http_info(authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param str authorization: (required)
         :param str api_key: (required)
@@ -70,11 +60,8 @@ class LimitApi(object):
                  returns the request thread.
         """
 
-        all_params = ['authorization', 'api_key']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['authorization', 'api_key', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -84,7 +71,7 @@ class LimitApi(object):
                     " to method fund_view" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'authorization' is set
         if ('authorization' not in params or
                 params['authorization'] is None):

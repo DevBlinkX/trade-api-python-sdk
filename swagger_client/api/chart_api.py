@@ -35,11 +35,6 @@ class ChartApi(object):
     def historical_data(self, authorization, api_key, symbol, resolution, _from, to, countback, exc, stream_symbol, **kwargs):  # noqa: E501
         """HistoricalDataAPI  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.historical_data(authorization, api_key, symbol, resolution, _from, to, countback, exc, stream_symbol, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param str authorization: (required)
         :param str api_key: (required)
@@ -66,8 +61,6 @@ class ChartApi(object):
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.historical_data_with_http_info(authorization, api_key, symbol, resolution, _from, to, countback, exc, stream_symbol, async_req=True)
-        >>> result = thread.get()
 
         :param async_req bool
         :param str authorization: (required)
@@ -98,7 +91,7 @@ class ChartApi(object):
                     " to method historical_data" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'authorization' is set
         if ('authorization' not in params or
                 params['authorization'] is None):
@@ -192,11 +185,6 @@ class ChartApi(object):
     def intraday(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """IntradayAPI  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.intraday(body, authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param IntradayRequest body: (required)
         :param str authorization: (required)
@@ -215,11 +203,6 @@ class ChartApi(object):
     def intraday_with_http_info(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """IntradayAPI  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.intraday_with_http_info(body, authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param IntradayRequest body: (required)
         :param str authorization: (required)
@@ -229,11 +212,8 @@ class ChartApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'authorization', 'api_key']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['body', 'authorization', 'api_key', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -243,7 +223,7 @@ class ChartApi(object):
                     " to method intraday" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -305,11 +285,6 @@ class ChartApi(object):
     def spark_line(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """SparkLineAPI  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.spark_line(body, authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param SparklineRequest body: (required)
         :param str authorization: (required)
@@ -328,11 +303,6 @@ class ChartApi(object):
     def spark_line_with_http_info(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """SparkLineAPI  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.spark_line_with_http_info(body, authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param SparklineRequest body: (required)
         :param str authorization: (required)
@@ -342,11 +312,8 @@ class ChartApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'authorization', 'api_key']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['body', 'authorization', 'api_key', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -356,7 +323,7 @@ class ChartApi(object):
                     " to method spark_line" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):

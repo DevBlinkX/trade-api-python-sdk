@@ -35,11 +35,6 @@ class ReportApi(object):
     def profit_loss_report(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """ProfitLossReportAPI  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.profit_loss_report(body, authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param ProfitLossRequest body: (required)
         :param str authorization: (required)
@@ -58,11 +53,6 @@ class ReportApi(object):
     def profit_loss_report_with_http_info(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """ProfitLossReportAPI  # noqa: E501
 
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.profit_loss_report_with_http_info(body, authorization, api_key, async_req=True)
-        >>> result = thread.get()
-
         :param async_req bool
         :param ProfitLossRequest body: (required)
         :param str authorization: (required)
@@ -72,11 +62,8 @@ class ReportApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'authorization', 'api_key']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['body', 'authorization', 'api_key', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
         for key, val in six.iteritems(params['kwargs']):
@@ -86,7 +73,7 @@ class ReportApi(object):
                     " to method profit_loss_report" % key
                 )
             params[key] = val
-        del params['kwargs']
+        
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
