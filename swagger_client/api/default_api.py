@@ -58,13 +58,13 @@ class DefaultApi(object):
                       '_request_timeout']  # noqa: E501
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method login_normal_login_post" % key
-                )
-            params[key] = val
+        # for key, val in six.iteritems(params['kwargs']):
+        #     if key not in all_params:
+        #         raise TypeError(
+        #             "Got an unexpected keyword argument '%s'"
+        #             " to method login_normal_login_post" % key
+        #         )
+        #     params[key] = val
         del params['kwargs']
         # verify the required parameter 'body' is set
         if ('body' not in params or
