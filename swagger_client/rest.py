@@ -28,7 +28,6 @@ try:
 except ImportError:
     raise ImportError('Swagger python client requires urllib3.')
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -139,7 +138,7 @@ class RESTClientObject(object):
 
         timeout = None
         if _request_timeout:
-            if isinstance(_request_timeout, (int, ) if six.PY3 else (int, long)):  # noqa: E501,F821
+            if isinstance(_request_timeout, (int,) if six.PY3 else (int, long)):  # noqa: E501,F821
                 timeout = urllib3.Timeout(total=_request_timeout)
             elif (isinstance(_request_timeout, tuple) and
                   len(_request_timeout) == 2):
@@ -305,7 +304,7 @@ class ApiException(Exception):
 
     def __str__(self):
         """Custom error messages for exception"""
-        error_message = "({0})\n"\
+        error_message = "({0})\n" \
                         "Reason: {1}\n".format(self.status, self.reason)
         if self.headers:
             error_message += "HTTP response headers: {0}\n".format(

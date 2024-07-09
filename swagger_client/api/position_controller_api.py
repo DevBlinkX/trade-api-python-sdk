@@ -73,7 +73,7 @@ class PositionControllerApi(object):
                     " to method convert_position" % key
                 )
             params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -171,7 +171,7 @@ class PositionControllerApi(object):
                     " to method do_holdings" % key
                 )
             params[key] = val
-        
+
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params or
                 params['user_id'] is None):
@@ -259,7 +259,7 @@ class PositionControllerApi(object):
                     " to method get_position_book" % key
                 )
             params[key] = val
-        
+
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params or
                 params['user_id'] is None):

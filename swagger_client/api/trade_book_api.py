@@ -32,7 +32,7 @@ class TradeBookApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def get_order_book(self, user_id, source, **kwargs):  # noqa: E501
+    def get_order_book(self, user_id, source, authorization, api_key, **kwargs):  # noqa: E501
         """Get orders  # noqa: E501
 
         :param async_req bool
@@ -44,12 +44,12 @@ class TradeBookApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_order_book_with_http_info(user_id, source, **kwargs)  # noqa: E501
+            return self.get_order_book_with_http_info(user_id, source, authorization, api_key, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_order_book_with_http_info(user_id, source, **kwargs)  # noqa: E501
+            (data) = self.get_order_book_with_http_info(user_id, source, authorization, api_key, **kwargs)  # noqa: E501
             return data
 
-    def get_order_book_with_http_info(self, user_id, source, **kwargs):  # noqa: E501
+    def get_order_book_with_http_info(self, user_id, source, authorization, api_key, **kwargs):  # noqa: E501
         """Get orders  # noqa: E501
 
         :param async_req bool
@@ -60,7 +60,8 @@ class TradeBookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+        all_params = ['user_id', 'source', 'authorization', 'api_key', 'async_req', '_return_http_data_only',
+                      '_preload_content',
                       '_request_timeout']  # noqa: E501
 
         params = locals()
@@ -71,7 +72,7 @@ class TradeBookApi(object):
                     " to method get_order_book" % key
                 )
             params[key] = val
-        
+
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params or
                 params['user_id'] is None):
@@ -80,6 +81,15 @@ class TradeBookApi(object):
         if ('source' not in params or
                 params['source'] is None):
             raise ValueError("Missing the required parameter `source` when calling `get_order_book`")  # noqa: E501
+        # verify the required parameter 'authorization' is set
+        if ('authorization' not in params or
+                params['authorization'] is None):
+            raise ValueError(
+                "Missing the required parameter `authorization` when calling `profit_loss_report`")  # noqa: E501
+        # verify the required parameter 'api_key' is set
+        if ('api_key' not in params or
+                params['api_key'] is None):
+            raise ValueError("Missing the required parameter `api_key` when calling `profit_loss_report`")  # noqa: E501
 
         collection_formats = {}
 
@@ -92,6 +102,10 @@ class TradeBookApi(object):
             header_params['user-id'] = params['user_id']  # noqa: E501
         if 'source' in params:
             header_params['source'] = params['source']  # noqa: E501
+        if 'authorization' in params:
+            header_params['Authorization'] = params['authorization']  # noqa: E501
+        if 'api_key' in params:
+            header_params['api-key'] = params['api_key']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -120,7 +134,7 @@ class TradeBookApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_order_trail(self, body, user_id, source, **kwargs):  # noqa: E501
+    def get_order_trail(self, body, user_id, source, authorization, api_key, **kwargs):  # noqa: E501
         """Order Trail  # noqa: E501
 
         :param async_req bool
@@ -133,12 +147,14 @@ class TradeBookApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.get_order_trail_with_http_info(body, user_id, source, **kwargs)  # noqa: E501
+            return self.get_order_trail_with_http_info(body, user_id, source, authorization, api_key,
+                                                       **kwargs)  # noqa: E501
         else:
-            (data) = self.get_order_trail_with_http_info(body, user_id, source, **kwargs)  # noqa: E501
+            (data) = self.get_order_trail_with_http_info(body, user_id, source, authorization, api_key,
+                                                         **kwargs)  # noqa: E501
             return data
 
-    def get_order_trail_with_http_info(self, body, user_id, source, **kwargs):  # noqa: E501
+    def get_order_trail_with_http_info(self, body, user_id, source, authorization, api_key, **kwargs):  # noqa: E501
         """Order Trail  # noqa: E501
 
         :param async_req bool
@@ -150,7 +166,8 @@ class TradeBookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+        all_params = ['body', 'user_id', 'source', 'authorization', 'api_key', 'async_req', '_return_http_data_only',
+                      '_preload_content',
                       '_request_timeout']  # noqa: E501
 
         params = locals()
@@ -161,7 +178,7 @@ class TradeBookApi(object):
                     " to method get_order_trail" % key
                 )
             params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -174,6 +191,15 @@ class TradeBookApi(object):
         if ('source' not in params or
                 params['source'] is None):
             raise ValueError("Missing the required parameter `source` when calling `get_order_trail`")  # noqa: E501
+        # verify the required parameter 'authorization' is set
+        if ('authorization' not in params or
+                params['authorization'] is None):
+            raise ValueError(
+                "Missing the required parameter `authorization` when calling `profit_loss_report`")  # noqa: E501
+        # verify the required parameter 'api_key' is set
+        if ('api_key' not in params or
+                params['api_key'] is None):
+            raise ValueError("Missing the required parameter `api_key` when calling `profit_loss_report`")  # noqa: E501
 
         collection_formats = {}
 
@@ -186,6 +212,10 @@ class TradeBookApi(object):
             header_params['user-id'] = params['user_id']  # noqa: E501
         if 'source' in params:
             header_params['source'] = params['source']  # noqa: E501
+        if 'authorization' in params:
+            header_params['Authorization'] = params['authorization']  # noqa: E501
+        if 'api_key' in params:
+            header_params['api-key'] = params['api_key']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -220,7 +250,7 @@ class TradeBookApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def trade_book(self, user_id, source, order_ids, **kwargs):  # noqa: E501
+    def trade_book(self, user_id, source, authorization, api_key, order_ids, **kwargs):  # noqa: E501
         """Trades  # noqa: E501
 
         :param async_req bool
@@ -233,12 +263,14 @@ class TradeBookApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.trade_book_with_http_info(user_id, source, order_ids, **kwargs)  # noqa: E501
+            return self.trade_book_with_http_info(user_id, source, authorization, api_key, order_ids,
+                                                  **kwargs)  # noqa: E501
         else:
-            (data) = self.trade_book_with_http_info(user_id, source, order_ids, **kwargs)  # noqa: E501
+            (data) = self.trade_book_with_http_info(user_id, source, authorization, api_key, order_ids,
+                                                    **kwargs)  # noqa: E501
             return data
 
-    def trade_book_with_http_info(self, user_id, source, order_ids, **kwargs):  # noqa: E501
+    def trade_book_with_http_info(self, user_id, source, authorization, api_key, order_ids, **kwargs):  # noqa: E501
         """Trades  # noqa: E501
 
         :param async_req bool
@@ -250,7 +282,8 @@ class TradeBookApi(object):
                  returns the request thread.
         """
 
-        all_params = ['user_id', 'source', 'order_ids', 'async_req', '_return_http_data_only', '_preload_content',
+        all_params = ['user_id', 'source', 'authorization', 'api_key', 'order_ids', 'async_req',
+                      '_return_http_data_only', '_preload_content',
                       '_request_timeout']  # noqa: E501
 
         params = locals()
@@ -261,7 +294,7 @@ class TradeBookApi(object):
                     " to method trade_book" % key
                 )
             params[key] = val
-        
+
         # verify the required parameter 'user_id' is set
         if ('user_id' not in params or
                 params['user_id'] is None):
@@ -274,6 +307,15 @@ class TradeBookApi(object):
         if ('order_ids' not in params or
                 params['order_ids'] is None):
             raise ValueError("Missing the required parameter `order_ids` when calling `trade_book`")  # noqa: E501
+        # verify the required parameter 'authorization' is set
+        if ('authorization' not in params or
+                params['authorization'] is None):
+            raise ValueError(
+                "Missing the required parameter `authorization` when calling `profit_loss_report`")  # noqa: E501
+        # verify the required parameter 'api_key' is set
+        if ('api_key' not in params or
+                params['api_key'] is None):
+            raise ValueError("Missing the required parameter `api_key` when calling `profit_loss_report`")  # noqa: E501
 
         collection_formats = {}
 
@@ -289,6 +331,10 @@ class TradeBookApi(object):
             header_params['user-id'] = params['user_id']  # noqa: E501
         if 'source' in params:
             header_params['source'] = params['source']  # noqa: E501
+        if 'authorization' in params:
+            header_params['Authorization'] = params['authorization']  # noqa: E501
+        if 'api_key' in params:
+            header_params['api-key'] = params['api_key']  # noqa: E501
 
         form_params = []
         local_var_files = {}

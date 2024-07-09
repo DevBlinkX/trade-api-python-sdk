@@ -14,6 +14,9 @@ from __future__ import absolute_import
 
 import re  # noqa: F401
 
+# python 2 and python 3 compatibility library
+import six
+
 from swagger_client.api_client import ApiClient
 
 
@@ -29,7 +32,7 @@ class DefaultApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def login_normal_login_post(self, body, app_id):  # noqa: E501
+    def login_normal_login_post(self, body, api_key):  # noqa: E501
         """User login  # noqa: E501
 
         :param LoginNormalLoginBody body: (required)
@@ -38,40 +41,32 @@ class DefaultApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        data = self.login_normal_login_post_with_http_info(body, app_id)  # noqa: E501
+        data = self.login_normal_login_post_with_http_info(body, api_key)  # noqa: E501
         return data
 
-    def login_normal_login_post_with_http_info(self, body, app_id):  # noqa: E501
+    def login_normal_login_post_with_http_info(self, body, api_key):  # noqa: E501
         """User login  # noqa: E501
 
         :param LoginNormalLoginBody body: (required)
-        :param str app_id: Application ID (required)
+        :param str api_key: Application ID (required)
         :return: LoginResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['body', 'app_id', 'async_req', '_return_http_data_only', '_preload_content',
+        all_params = ['body', 'api_key', 'async_req', '_return_http_data_only', '_preload_content',
                       '_request_timeout']  # noqa: E501
 
         params = locals()
-        # for key, val in six.iteritems(params['kwargs']):
-        #     if key not in all_params:
-        #         raise TypeError(
-        #             "Got an unexpected keyword argument '%s'"
-        #             " to method login_normal_login_post" % key
-        #         )
-        #     params[key] = val
-        # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
             raise ValueError(
                 "Missing the required parameter `body` when calling `login_normal_login_post`")  # noqa: E501
         # verify the required parameter 'app_id' is set
-        if ('app_id' not in params or
-                params['app_id'] is None):
+        if ('api_key' not in params or
+                params['api_key'] is None):
             raise ValueError(
-                "Missing the required parameter `app_id` when calling `login_normal_login_post`")  # noqa: E501
+                "Missing the required parameter `api-key` when calling `login_normal_login_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -80,8 +75,8 @@ class DefaultApi(object):
         query_params = []
 
         header_params = {}
-        if 'app_id' in params:
-            header_params['appId'] = params['app_id']  # noqa: E501
+        if 'api_key' in params:
+            header_params['api-key'] = params['api_key']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -101,7 +96,7 @@ class DefaultApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/login/normal-login', 'POST',
+            '/auth-services/api/auth/v1/login', 'POST',
             path_params,
             query_params,
             header_params,

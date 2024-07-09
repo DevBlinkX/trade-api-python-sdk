@@ -321,13 +321,13 @@ class ApiClient(object):
                                    _preload_content, _request_timeout)
         else:
             thread = self.pool.apply_async(self.__call_api, (resource_path,
-                                           method, path_params, query_params,
-                                           header_params, body,
-                                           post_params, files,
-                                           response_type, auth_settings,
-                                           _return_http_data_only,
-                                           collection_formats,
-                                           _preload_content, _request_timeout))
+                                                             method, path_params, query_params,
+                                                             header_params, body,
+                                                             post_params, files,
+                                                             response_type, auth_settings,
+                                                             _return_http_data_only,
+                                                             collection_formats,
+                                                             _preload_content, _request_timeout))
         return thread
 
     def request(self, method, url, query_params=None, headers=None,
@@ -595,7 +595,7 @@ class ApiClient(object):
             )
 
     def __hasattr(self, object, name):
-            return name in object.__class__.__dict__
+        return name in object.__class__.__dict__
 
     def __deserialize_model(self, data, klass):
         """Deserializes list or dict to model.
@@ -611,10 +611,14 @@ class ApiClient(object):
         kwargs = {}
         if klass.swagger_types is not None:
             for attr, attr_type in six.iteritems(klass.swagger_types):
-                if (data is not None and
-                        klass.attribute_map[attr] in data and
-                        isinstance(data, (list, dict))):
-                    value = data[klass.attribute_map[attr]]
+                attr_key = str(klass.attribute_map[attr])
+                # Check data type and decode if necessary
+                if isinstance(data, bytes):
+                    data = data.decode('utf-8')
+
+                # Check if attr_key is in data
+                if isinstance(data, dict) and attr_key in data:
+                    value = data[attr_key]
                     kwargs[attr] = self.__deserialize(value, attr_type)
 
         instance = klass(**kwargs)

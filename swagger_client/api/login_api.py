@@ -43,12 +43,8 @@ class LoginApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_profile_with_http_info(body, authorization, api_key, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_profile_with_http_info(body, authorization, api_key, **kwargs)  # noqa: E501
-            return data
+        (data) = self.get_profile_with_http_info(body, authorization, api_key, **kwargs)  # noqa: E501
+        return data
 
     def get_profile_with_http_info(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """Get ProfileAPI  # noqa: E501
@@ -66,14 +62,7 @@ class LoginApi(object):
                       '_request_timeout']  # noqa: E501
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_profile" % key
-                )
-            params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -117,7 +106,7 @@ class LoginApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/getProfile', 'POST',
+            '/wrapper-details-service/api/user/v1/get-profile', 'POST',
             path_params,
             query_params,
             header_params,

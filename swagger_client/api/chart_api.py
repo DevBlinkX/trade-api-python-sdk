@@ -32,7 +32,8 @@ class ChartApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def historical_data(self, authorization, api_key, symbol, resolution, _from, to, countback, exc, stream_symbol, **kwargs):  # noqa: E501
+    def historical_data(self, authorization, api_key, symbol, resolution, _from, to, countback, exc, stream_symbol,
+                        **kwargs):  # noqa: E501
         """HistoricalDataAPI  # noqa: E501
 
         :param async_req bool
@@ -49,14 +50,12 @@ class ChartApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.historical_data_with_http_info(authorization, api_key, symbol, resolution, _from, to, countback, exc, stream_symbol, **kwargs)  # noqa: E501
-        else:
-            (data) = self.historical_data_with_http_info(authorization, api_key, symbol, resolution, _from, to, countback, exc, stream_symbol, **kwargs)  # noqa: E501
-            return data
+        (data) = self.historical_data_with_http_info(authorization, api_key, symbol, resolution, _from, to, countback,
+                                                     exc, stream_symbol, **kwargs)  # noqa: E501
+        return data
 
-    def historical_data_with_http_info(self, authorization, api_key, symbol, resolution, _from, to, countback, exc, stream_symbol, **kwargs):  # noqa: E501
+    def historical_data_with_http_info(self, authorization, api_key, symbol, resolution, _from, to, countback, exc,
+                                       stream_symbol, **kwargs):  # noqa: E501
         """HistoricalDataAPI  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -77,25 +76,17 @@ class ChartApi(object):
                  returns the request thread.
         """
 
-        all_params = ['authorization', 'api_key', 'symbol', 'resolution', '_from', 'to', 'countback', 'exc', 'stream_symbol']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
+        all_params = ['authorization', 'api_key', 'symbol', 'resolution', '_from', 'to', 'countback', 'exc',
+                      'stream_symbol', 'async_req', '_return_http_data_only', '_preload_content',
+                      '_request_timeout']  # noqa: E501
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method historical_data" % key
-                )
-            params[key] = val
-        
+
         # verify the required parameter 'authorization' is set
         if ('authorization' not in params or
                 params['authorization'] is None):
-            raise ValueError("Missing the required parameter `authorization` when calling `historical_data`")  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `authorization` when calling `historical_data`")  # noqa: E501
         # verify the required parameter 'api_key' is set
         if ('api_key' not in params or
                 params['api_key'] is None):
@@ -127,7 +118,8 @@ class ChartApi(object):
         # verify the required parameter 'stream_symbol' is set
         if ('stream_symbol' not in params or
                 params['stream_symbol'] is None):
-            raise ValueError("Missing the required parameter `stream_symbol` when calling `historical_data`")  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `stream_symbol` when calling `historical_data`")  # noqa: E501
 
         collection_formats = {}
 
@@ -193,12 +185,8 @@ class ChartApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.intraday_with_http_info(body, authorization, api_key, **kwargs)  # noqa: E501
-        else:
-            (data) = self.intraday_with_http_info(body, authorization, api_key, **kwargs)  # noqa: E501
-            return data
+        (data) = self.intraday_with_http_info(body, authorization, api_key, **kwargs)  # noqa: E501
+        return data
 
     def intraday_with_http_info(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """IntradayAPI  # noqa: E501
@@ -216,14 +204,7 @@ class ChartApi(object):
                       '_request_timeout']  # noqa: E501
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method intraday" % key
-                )
-            params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -267,7 +248,7 @@ class ChartApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/chart/v1/intraday-candle-data', 'POST',
+            '/wrapper-details-service/api/chart/v1/intraday-candle-data', 'POST',
             path_params,
             query_params,
             header_params,
@@ -323,7 +304,7 @@ class ChartApi(object):
                     " to method spark_line" % key
                 )
             params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -367,7 +348,7 @@ class ChartApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/quote/v1/get-ohlc', 'POST',
+            '/wrapper-details-service/api/quote/v1/get-ohlc', 'POST',
             path_params,
             query_params,
             header_params,

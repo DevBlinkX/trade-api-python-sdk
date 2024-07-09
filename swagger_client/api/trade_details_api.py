@@ -73,7 +73,7 @@ class TradeDetailsApi(object):
                     " to method order_details" % key
                 )
             params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -81,7 +81,8 @@ class TradeDetailsApi(object):
         # verify the required parameter 'authorization' is set
         if ('authorization' not in params or
                 params['authorization'] is None):
-            raise ValueError("Missing the required parameter `authorization` when calling `order_details`")  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `authorization` when calling `order_details`")  # noqa: E501
         # verify the required parameter 'api_key' is set
         if ('api_key' not in params or
                 params['api_key'] is None):
@@ -173,11 +174,12 @@ class TradeDetailsApi(object):
                     " to method order_history" % key
                 )
             params[key] = val
-        
+
         # verify the required parameter 'authorization' is set
         if ('authorization' not in params or
                 params['authorization'] is None):
-            raise ValueError("Missing the required parameter `authorization` when calling `order_history`")  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `authorization` when calling `order_history`")  # noqa: E501
         # verify the required parameter 'api_key' is set
         if ('api_key' not in params or
                 params['api_key'] is None):
@@ -241,9 +243,11 @@ class TradeDetailsApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async_req'):
-            return self.trade_details_using_order_id_with_http_info(body, authorization, api_key, **kwargs)  # noqa: E501
+            return self.trade_details_using_order_id_with_http_info(body, authorization, api_key,
+                                                                    **kwargs)  # noqa: E501
         else:
-            (data) = self.trade_details_using_order_id_with_http_info(body, authorization, api_key, **kwargs)  # noqa: E501
+            (data) = self.trade_details_using_order_id_with_http_info(body, authorization, api_key,
+                                                                      **kwargs)  # noqa: E501
             return data
 
     def trade_details_using_order_id_with_http_info(self, body, authorization, api_key, **kwargs):  # noqa: E501
@@ -269,19 +273,22 @@ class TradeDetailsApi(object):
                     " to method trade_details_using_order_id" % key
                 )
             params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
-            raise ValueError("Missing the required parameter `body` when calling `trade_details_using_order_id`")  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `body` when calling `trade_details_using_order_id`")  # noqa: E501
         # verify the required parameter 'authorization' is set
         if ('authorization' not in params or
                 params['authorization'] is None):
-            raise ValueError("Missing the required parameter `authorization` when calling `trade_details_using_order_id`")  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `authorization` when calling `trade_details_using_order_id`")  # noqa: E501
         # verify the required parameter 'api_key' is set
         if ('api_key' not in params or
                 params['api_key'] is None):
-            raise ValueError("Missing the required parameter `api_key` when calling `trade_details_using_order_id`")  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `api_key` when calling `trade_details_using_order_id`")  # noqa: E501
 
         collection_formats = {}
 

@@ -73,7 +73,7 @@ class ReportApi(object):
                     " to method profit_loss_report" % key
                 )
             params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -81,7 +81,8 @@ class ReportApi(object):
         # verify the required parameter 'authorization' is set
         if ('authorization' not in params or
                 params['authorization'] is None):
-            raise ValueError("Missing the required parameter `authorization` when calling `profit_loss_report`")  # noqa: E501
+            raise ValueError(
+                "Missing the required parameter `authorization` when calling `profit_loss_report`")  # noqa: E501
         # verify the required parameter 'api_key' is set
         if ('api_key' not in params or
                 params['api_key'] is None):

@@ -14,9 +14,6 @@ from __future__ import absolute_import
 
 import re  # noqa: F401
 
-# python 2 and python 3 compatibility library
-import six
-
 from swagger_client.api_client import ApiClient
 
 
@@ -42,12 +39,8 @@ class LimitApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.fund_view_with_http_info(authorization, api_key, **kwargs)  # noqa: E501
-        else:
-            (data) = self.fund_view_with_http_info(authorization, api_key, **kwargs)  # noqa: E501
-            return data
+        (data) = self.fund_view_with_http_info(authorization, api_key, **kwargs)  # noqa: E501
+        return data
 
     def fund_view_with_http_info(self, authorization, api_key, **kwargs):  # noqa: E501
         """FundViewAPI  # noqa: E501
@@ -64,14 +57,7 @@ class LimitApi(object):
                       '_request_timeout']  # noqa: E501
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method fund_view" % key
-                )
-            params[key] = val
-        
+
         # verify the required parameter 'authorization' is set
         if ('authorization' not in params or
                 params['authorization'] is None):
@@ -105,7 +91,7 @@ class LimitApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/funds/v1/get-funds', 'GET',
+            '/wrapper-details-service/api/funds/v1/get-funds', 'GET',
             path_params,
             query_params,
             header_params,

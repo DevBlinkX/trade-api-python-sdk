@@ -32,7 +32,7 @@ class OrderControllerApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def brokerage_charges(self, body, user_id, source, **kwargs):  # noqa: E501
+    def brokerage_charges(self, body, user_id, authorization, api_key, source, **kwargs):  # noqa: E501
         """Brokerage Charges  # noqa: E501
 
         :param async_req bool
@@ -43,14 +43,11 @@ class OrderControllerApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.brokerage_charges_with_http_info(body, user_id, source, **kwargs)  # noqa: E501
-        else:
-            (data) = self.brokerage_charges_with_http_info(body, user_id, source, **kwargs)  # noqa: E501
-            return data
+        (data) = self.brokerage_charges_with_http_info(body, user_id, authorization, api_key, source,
+                                                           **kwargs)  # noqa: E501
+        return data
 
-    def brokerage_charges_with_http_info(self, body, user_id, source, **kwargs):  # noqa: E501
+    def brokerage_charges_with_http_info(self, body, user_id, authorization, api_key, source, **kwargs):  # noqa: E501
         """Brokerage Charges  # noqa: E501
 
         :param async_req bool
@@ -62,18 +59,12 @@ class OrderControllerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+        all_params = ['body', 'user_id', 'authorization', 'api_key', 'source', 'async_req', '_return_http_data_only',
+                      '_preload_content',
                       '_request_timeout']  # noqa: E501
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method brokerage_charges" % key
-                )
-            params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -86,6 +77,13 @@ class OrderControllerApi(object):
         if ('source' not in params or
                 params['source'] is None):
             raise ValueError("Missing the required parameter `source` when calling `brokerage_charges`")  # noqa: E501
+        if ('authorization' not in params or
+                params['authorization'] is None):
+            raise ValueError("Missing the required parameter `authorization` when calling `get_quote`")  # noqa: E501
+        # verify the required parameter 'api_key' is set
+        if ('api_key' not in params or
+                params['api_key'] is None):
+            raise ValueError("Missing the required parameter `api_key` when calling `get_quote`")  # noqa: E501
 
         collection_formats = {}
 
@@ -98,6 +96,10 @@ class OrderControllerApi(object):
             header_params['user-id'] = params['user_id']  # noqa: E501
         if 'source' in params:
             header_params['source'] = params['source']  # noqa: E501
+        if 'authorization' in params:
+            header_params['Authorization'] = params['authorization']  # noqa: E501
+        if 'api_key' in params:
+            header_params['api-key'] = params['api_key']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -132,7 +134,7 @@ class OrderControllerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def cancel_order(self, body, user_id, source, **kwargs):  # noqa: E501
+    def cancel_order(self, body, user_id, source, authorization, api_key, **kwargs):  # noqa: E501
         """Cancel Order  # noqa: E501
 
         :param async_req bool
@@ -143,14 +145,11 @@ class OrderControllerApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.cancel_order_with_http_info(body, user_id, source, **kwargs)  # noqa: E501
-        else:
-            (data) = self.cancel_order_with_http_info(body, user_id, source, **kwargs)  # noqa: E501
-            return data
+        (data) = self.cancel_order_with_http_info(body, user_id, source, authorization, api_key,
+                                                      **kwargs)  # noqa: E501
+        return data
 
-    def cancel_order_with_http_info(self, body, user_id, source, **kwargs):  # noqa: E501
+    def cancel_order_with_http_info(self, body, user_id, source, authorization, api_key, **kwargs):  # noqa: E501
         """Cancel Order  # noqa: E501
 
         :param async_req bool
@@ -162,18 +161,12 @@ class OrderControllerApi(object):
                  returns the request thread.
         """
 
-        all_params = ['body', 'user_id', 'source', 'async_req', '_return_http_data_only', '_preload_content',
+        all_params = ['body', 'user_id', 'source', 'authorization', 'api_key', 'async_req', '_return_http_data_only',
+                      '_preload_content',
                       '_request_timeout']  # noqa: E501
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method cancel_order" % key
-                )
-            params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -186,6 +179,13 @@ class OrderControllerApi(object):
         if ('source' not in params or
                 params['source'] is None):
             raise ValueError("Missing the required parameter `source` when calling `cancel_order`")  # noqa: E501
+        if ('authorization' not in params or
+                params['authorization'] is None):
+            raise ValueError("Missing the required parameter `authorization` when calling `get_quote`")  # noqa: E501
+        # verify the required parameter 'api_key' is set
+        if ('api_key' not in params or
+                params['api_key'] is None):
+            raise ValueError("Missing the required parameter `api_key` when calling `get_quote`")  # noqa: E501
 
         collection_formats = {}
 
@@ -198,6 +198,10 @@ class OrderControllerApi(object):
             header_params['user-id'] = params['user_id']  # noqa: E501
         if 'source' in params:
             header_params['source'] = params['source']  # noqa: E501
+        if 'authorization' in params:
+            header_params['Authorization'] = params['authorization']  # noqa: E501
+        if 'api_key' in params:
+            header_params['api-key'] = params['api_key']  # noqa: E501
 
         form_params = []
         local_var_files = {}
@@ -232,7 +236,7 @@ class OrderControllerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def exit_order(self, body, user_id, source, **kwargs):  # noqa: E501
+    def exit_order(self, body, user_id, source, authorization, api_key, **kwargs):  # noqa: E501
         """Exit an Order  # noqa: E501
 
         :param async_req bool
@@ -243,14 +247,10 @@ class OrderControllerApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.exit_order_with_http_info(body, user_id, source, **kwargs)  # noqa: E501
-        else:
-            (data) = self.exit_order_with_http_info(body, user_id, source, **kwargs)  # noqa: E501
-            return data
+        (data) = self.exit_order_with_http_info(body, user_id, source, authorization, api_key, **kwargs)  # noqa: E501
+        return data
 
-    def exit_order_with_http_info(self, body, user_id, source, **kwargs):  # noqa: E501
+    def exit_order_with_http_info(self, body, user_id, source, authorization, api_key, **kwargs):  # noqa: E501
         """Exit an Order  # noqa: E501
 
         :param async_req bool
@@ -266,14 +266,7 @@ class OrderControllerApi(object):
                       '_request_timeout']  # noqa: E501
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method exit_order" % key
-                )
-            params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -332,7 +325,7 @@ class OrderControllerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def modify_order(self, body, user_id, source, **kwargs):  # noqa: E501
+    def modify_order(self, body, user_id, source, authorization, api_key, **kwargs):  # noqa: E501
         """Modify Order  # noqa: E501
 
         :param async_req bool
@@ -343,14 +336,10 @@ class OrderControllerApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.modify_order_with_http_info(body, user_id, source, **kwargs)  # noqa: E501
-        else:
-            (data) = self.modify_order_with_http_info(body, user_id, source, **kwargs)  # noqa: E501
-            return data
+        (data) = self.modify_order_with_http_info(body, user_id, source, authorization, api_key, **kwargs)  # noqa: E501
+        return data
 
-    def modify_order_with_http_info(self, body, user_id, source, **kwargs):  # noqa: E501
+    def modify_order_with_http_info(self, body, user_id, source, authorization, api_key, **kwargs):  # noqa: E501
         """Modify Order  # noqa: E501
 
         :param async_req bool
@@ -366,14 +355,7 @@ class OrderControllerApi(object):
                       '_request_timeout']  # noqa: E501
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method modify_order" % key
-                )
-            params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -432,7 +414,7 @@ class OrderControllerApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def place_order(self, body, user_id, source, **kwargs):  # noqa: E501
+    def place_order(self, body, user_id, source, authorization, api_key, **kwargs):  # noqa: E501
         """Place Order  # noqa: E501
 
         :param async_req bool
@@ -443,14 +425,10 @@ class OrderControllerApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.place_order_with_http_info(body, user_id, source, **kwargs)  # noqa: E501
-        else:
-            (data) = self.place_order_with_http_info(body, user_id, source, **kwargs)  # noqa: E501
-            return data
+        (data) = self.place_order_with_http_info(body, user_id, source, authorization, api_key, **kwargs)  # noqa: E501
+        return data
 
-    def place_order_with_http_info(self, body, user_id, source, **kwargs):  # noqa: E501
+    def place_order_with_http_info(self, body, user_id, source, authorization, api_key, **kwargs):  # noqa: E501
         """Place Order  # noqa: E501
 
         :param async_req bool
@@ -466,14 +444,7 @@ class OrderControllerApi(object):
                       '_request_timeout']  # noqa: E501
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method place_order" % key
-                )
-            params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):

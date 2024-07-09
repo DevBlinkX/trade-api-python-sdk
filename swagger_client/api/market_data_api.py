@@ -43,12 +43,8 @@ class MarketDataApi(object):
                  If the method is called asynchronously,
                  returns the request thread.
         """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async_req'):
-            return self.get_quote_with_http_info(body, authorization, api_key, **kwargs)  # noqa: E501
-        else:
-            (data) = self.get_quote_with_http_info(body, authorization, api_key, **kwargs)  # noqa: E501
-            return data
+        (data) = self.get_quote_with_http_info(body, authorization, api_key, **kwargs)  # noqa: E501
+        return data
 
     def get_quote_with_http_info(self, body, authorization, api_key, **kwargs):  # noqa: E501
         """GetQuoteAPI  # noqa: E501
@@ -66,14 +62,7 @@ class MarketDataApi(object):
                       '_request_timeout']  # noqa: E501
 
         params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method get_quote" % key
-                )
-            params[key] = val
-        
+
         # verify the required parameter 'body' is set
         if ('body' not in params or
                 params['body'] is None):
@@ -117,7 +106,7 @@ class MarketDataApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/quote', 'POST',
+            '/wrapper-details-service/api/market/v1/quote', 'POST',
             path_params,
             query_params,
             header_params,
