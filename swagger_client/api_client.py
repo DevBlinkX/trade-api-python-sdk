@@ -280,6 +280,12 @@ class ApiClient(object):
 
         To make an async request, set the async_req parameter.
 
+        :param _return_http_data_only:
+        :param async_req:
+        :param auth_settings:
+        :param response_type:
+        :param files:
+        :param post_params:
         :param resource_path: Path to method endpoint.
         :param method: Method to call.
         :param path_params: Path parameters in the url.
@@ -287,14 +293,10 @@ class ApiClient(object):
         :param header_params: Header parameters to be
             placed in the request header.
         :param body: Request body.
-        :param post_params dict: Request post form parameters,
             for `application/x-www-form-urlencoded`, `multipart/form-data`.
-        :param auth_settings list: Auth Settings names for the request.
-        :param response: Response data type.
         :param files dict: key -> filename, value -> filepath,
             for `multipart/form-data`.
-        :param async_req bool: execute request asynchronously
-        :param _return_http_data_only: response data without head status code
+ead status code
                                        and headers
         :param collection_formats: dict of collection formats for path, query,
             header, and post parameters.

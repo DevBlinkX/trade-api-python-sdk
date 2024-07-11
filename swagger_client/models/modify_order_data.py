@@ -92,13 +92,6 @@ class ModifyOrderData(object):
         :param ord_status: The ord_status of this ModifyOrderData.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Executed", "Pending", "Cancelled", "Transit", "Rejected", "Requested", "None"]  # noqa: E501
-        if ord_status not in allowed_values:
-            raise ValueError(
-                "Invalid value for `ord_status` ({0}), must be one of {1}"  # noqa: E501
-                .format(ord_status, allowed_values)
-            )
-
         self._ord_status = ord_status
 
     @property

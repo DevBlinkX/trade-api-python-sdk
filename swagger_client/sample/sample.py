@@ -4,6 +4,10 @@ from swagger_client.api import LimitApi
 from swagger_client.api import LoginApi
 from swagger_client.api import MarketDataApi
 from swagger_client.api import OrderControllerApi
+from swagger_client.api import PositionControllerApi
+from swagger_client.api import ReportApi
+from swagger_client.api import TradeBookApi
+from swagger_client.api import TradeDetailsApi
 
 if __name__ == "__main__":
     loginAPI = DefaultApi()
@@ -132,15 +136,15 @@ if __name__ == "__main__":
     print("brokerage response: " + str(brokerage_response_body))
 
     place_order_body = {
-        "symbol": "IDFC-EQ",
-        "excToken": "11957",
+        "symbol": "NATIONALUM-EQ",
+        "excToken": "6364",
         "ordAction": "Buy",
         "ordValidity": "DAY",
         "ordType": "LIMIT",
         "prdType": "NORMAL",
         "qty": 5,
         "triggerPrice": 0,
-        "limitPrice": 117.55,
+        "limitPrice": 192.55,
         "disQty": 0,
         "instrument": "STK",
         "exc": "NSE",
@@ -152,4 +156,87 @@ if __name__ == "__main__":
         "trailingSL": 0
     }
 
-    place_order_response_body = orderAPI.place_order(place_order_body, "DGB101", "WEB")
+    place_order_response_body = orderAPI.place_order(place_order_body, "DGB101", "WEB", accessToken, api_key)[0]
+
+    print("place response: " + str(place_order_response_body))
+
+    orderId = place_order_response_body.to_dict()["data"]["ord_id"]
+
+    # modify order
+    modify_order_body = {
+        "triggerPrice": 0,
+        "ordType": "LIMIT",
+        "prdType": "CASH",
+        "instrument": "STK",
+        "exc": "NSE",
+        "qty": 10,
+        "lotSize": 0,
+        "symbol": "NATIONALUM-EQ",
+        "ordId": f"{orderId}",
+        "ordAction": "BUY",
+        "limitPrice": 192.55,
+        "disQty": 0,
+        "ordValidity": "DAY",
+        "tradedQty": 0,
+        "ordValidityDays": 0,
+        "exchangeToken": "13528",
+        "amo": True
+    }
+
+    modify_order_response_body = orderAPI.modify_order(modify_order_body, "DBG101", "WEB", accessToken, api_key)[0]
+
+    print("modify response: " + str(modify_order_response_body))
+
+    # cancel order
+    cancel_order_body = {
+        "symbol": "NATIONALUM-EQ",
+        "ordId": f"{orderId}",
+        "exc": "NSE"
+    }
+
+    cancel_order_response_body = orderAPI.cancel_order(cancel_order_body, "DBG101", "WEB", accessToken, api_key)
+
+    print("cancel order response: " + str(cancel_order_response_body))
+
+    # todo exit orders
+
+    # todo convert positions
+
+    # todo holdings
+
+    # position book
+    positionAPI = PositionControllerApi()
+
+    position_book_response_body = positionAPI.get_position_book("net", "DBG101", "WEB", accessToken, api_key)[0]
+
+    print("position response: " + str(position_book_response_body))
+
+    # profit and loss
+    reportAPI = ReportApi()
+
+    p_and_l_body = {
+        "data": {
+            "fromDate": "",
+            "months": "10",
+            "fy": "",
+            "segment": "equity",
+            "toDate": "",
+            "days": ""
+        },
+        "appID": "1"
+    }
+
+    p_and_l_response_body = reportAPI.profit_loss_report(p_and_l_body, accessToken, api_key)
+
+    print("profit and loss response: " + str(p_and_l_response_body))
+
+    # order book
+    bookAPI = TradeBookApi()
+
+    order_book_response_body = bookAPI.get_order_book("DBG101", "WEB", accessToken, api_key)[0]
+
+    print("order book response: " + str(order_book_response_body))
+
+    trade_book_response_body = bookAPI.trade_book("DBG101", "WEB", accessToken, api_key)[0]
+
+    print("trade book response: " + str(trade_book_response_body))
