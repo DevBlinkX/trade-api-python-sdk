@@ -296,7 +296,7 @@ class OrderControllerApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/order/v1/exit-order', 'POST',
+            '/wrapper-order-service/api/order/v1/exit-order', 'POST',
             path_params,
             query_params,
             header_params,

@@ -83,7 +83,7 @@ class TradeDetailsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/order/v1/order-details', 'POST',
+            '/wrapper-details-service/api/order/v1/order-details', 'POST',
             path_params,
             query_params,
             header_params,
@@ -161,7 +161,7 @@ class TradeDetailsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/order/v1/order-history', 'POST',
+            '/wrapper-details-service/api/order/v1/order-history', 'POST',
             path_params,
             query_params,
             header_params,
@@ -249,7 +249,7 @@ class TradeDetailsApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/order/v1/trade-details', 'POST',
+            '/wrapper-details-service/api/order/v1/trade-details', 'POST',
             path_params,
             query_params,
             header_params,

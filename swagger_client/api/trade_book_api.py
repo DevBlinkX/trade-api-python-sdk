@@ -97,7 +97,7 @@ class TradeBookApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/order/v1/order-book', 'GET',
+            '/wrapper-details-service/api/order/v1/order-book', 'GET',
             path_params,
             query_params,
             header_params,
@@ -134,7 +134,7 @@ class TradeBookApi(object):
         :return: TradeBookResponse.
         """
 
-        all_params = ['user_id', 'source', 'authorization', 'api_key', 'order_ids', 'async_req',
+        all_params = ['user_id', 'source', 'authorization', 'api_key', 'async_req',
                       '_return_http_data_only', '_preload_content',
                       '_request_timeout']  # noqa: E501
 
@@ -148,10 +148,6 @@ class TradeBookApi(object):
         if ('source' not in params or
                 params['source'] is None):
             raise ValueError("Missing the required parameter `source` when calling `trade_book`")  # noqa: E501
-        # verify the required parameter 'order_ids' is set
-        if ('order_ids' not in params or
-                params['order_ids'] is None):
-            raise ValueError("Missing the required parameter `order_ids` when calling `trade_book`")  # noqa: E501
         # verify the required parameter 'authorization' is set
         if ('authorization' not in params or
                 params['authorization'] is None):
@@ -193,7 +189,7 @@ class TradeBookApi(object):
         auth_settings = []  # noqa: E501
 
         return self.api_client.call_api(
-            '/order/v1/trade-book', 'GET',
+            '/wrapper-details-service/api/order/v1/trade-book', 'GET',
             path_params,
             query_params,
             header_params,

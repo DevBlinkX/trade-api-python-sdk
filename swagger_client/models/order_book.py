@@ -289,13 +289,6 @@ class OrderBook(object):
         :param status: The status of this OrderBook.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Executed", "Pending", "Cancelled", "Transit", "Rejected", "Requested", "None"]  # noqa: E501
-        if status not in allowed_values:
-            raise ValueError(
-                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
-                .format(status, allowed_values)
-            )
-
         self._status = status
 
     @property
@@ -316,13 +309,6 @@ class OrderBook(object):
         :param ord_action: The ord_action of this OrderBook.  # noqa: E501
         :type: str
         """
-        allowed_values = ["BUY", "SELL", "SHORT", "NONE"]  # noqa: E501
-        if ord_action not in allowed_values:
-            raise ValueError(
-                "Invalid value for `ord_action` ({0}), must be one of {1}"  # noqa: E501
-                .format(ord_action, allowed_values)
-            )
-
         self._ord_action = ord_action
 
     @property
@@ -343,13 +329,6 @@ class OrderBook(object):
         :param ord_type: The ord_type of this OrderBook.  # noqa: E501
         :type: str
         """
-        allowed_values = ["Market", "Limit", "Stop", "Stop-loss", "SL-M", "SL", "None"]  # noqa: E501
-        if ord_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `ord_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(ord_type, allowed_values)
-            )
-
         self._ord_type = ord_type
 
     @property
@@ -370,14 +349,6 @@ class OrderBook(object):
         :param prd_type: The prd_type of this OrderBook.  # noqa: E501
         :type: str
         """
-        allowed_values = ["CASH", "MTF", "INTRADAY", "MARGIN", "SHORTSELL", "COVER_ORDER", "BRACKET_ORDER", "NRML",
-                          "TNC", "DELIVERY", "NONE"]  # noqa: E501
-        if prd_type not in allowed_values:
-            raise ValueError(
-                "Invalid value for `prd_type` ({0}), must be one of {1}"  # noqa: E501
-                .format(prd_type, allowed_values)
-            )
-
         self._prd_type = prd_type
 
     @property
@@ -398,13 +369,6 @@ class OrderBook(object):
         :param ord_validity: The ord_validity of this OrderBook.  # noqa: E501
         :type: str
         """
-        allowed_values = ["DAY", "IOC", "GMT", "GTC", "AMO", "GTD", "NONE"]  # noqa: E501
-        if ord_validity not in allowed_values:
-            raise ValueError(
-                "Invalid value for `ord_validity` ({0}), must be one of {1}"  # noqa: E501
-                .format(ord_validity, allowed_values)
-            )
-
         self._ord_validity = ord_validity
 
     @property

@@ -240,3 +240,16 @@ if __name__ == "__main__":
     trade_book_response_body = bookAPI.trade_book("DBG101", "WEB", accessToken, api_key)[0]
 
     print("trade book response: " + str(trade_book_response_body))
+
+    # trade details
+    tradeDetailsAPI = TradeDetailsApi()
+
+    details_body = {
+        "ordId": f"{orderId}"
+    }
+
+    # trade_details_response_body = tradeDetailsAPI.trade_details_using_order_id(details_body, accessToken, api_key)
+
+    # order_details_response_body = tradeDetailsAPI.order_details(details_body, accessToken, api_key)
+
+    # order_history_response_body = tradeDetailsAPI.order_history(accessToken, api_key)
