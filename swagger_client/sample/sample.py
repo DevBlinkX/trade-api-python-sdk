@@ -12,12 +12,12 @@ from swagger_client.api import TradeDetailsApi
 if __name__ == "__main__":
     loginAPI = DefaultApi()
     login_body = {
-        "userId": "DBG101",
-        "password": "Akshaya@12",
-        "mobileNumber": "7305989193"
+        "userId": "SAMPLE1",
+        "password": "sample@123",
+        "mobileNumber": "1234567890"
     }
 
-    api_key = "vFP4PGYvD19qhJ67wR"
+    api_key = "SAMPLE_API_KEY"
     login_response_body, login_status_code, login_headers = loginAPI.login_normal_login_post(login_body, api_key)
     print("login response: " + str(login_response_body))
     accessToken = login_response_body.to_dict()["data"]["accessToken"]
